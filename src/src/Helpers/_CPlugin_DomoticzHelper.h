@@ -37,3 +37,4 @@ String serializeDomoticzJson(struct EventStruct *event);
 
 
 #endif // ifndef HELPERS__CPLUGIN_DOMOTICZHELPER_H
+String serializeThingsboardJson(struct EventStruct *event);

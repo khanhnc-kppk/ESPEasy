@@ -255,3 +255,17 @@ String serializeDomoticzJson(struct EventStruct *event)
 # endif // ifdef USES_C002
 
 #endif  // if FEATURE_DOMOTICZ
+
+String serializeThingsboardJson(struct EventStruct *event)
+{
+  String json;
+  {
+    json += '{';
+    json += to_json_object_value(toStringNoZero(event->TaskIndex), formatDomoticzSensorType(event), true);
+    json += ',';
+    json += to_json_object_value(F("RSSI"), mapRSSItoDomoticz());
+    json += '}';
+  }
+
+  return json;
+}
